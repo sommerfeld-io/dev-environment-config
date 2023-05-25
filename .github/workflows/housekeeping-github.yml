@@ -52,7 +52,7 @@ jobs:
       - name: Checkout repo which contains the terraform state file
         uses: actions/checkout@v3
         with:
-          repository: sebastian-sommerfeld-io/dev-environment-config
+          repository: sommerfeld-io/dev-environment-config
           token: ${{ secrets.TERRAFORM }}
           path: target/tmp/repos/dev-environment-config
       - name: validate
