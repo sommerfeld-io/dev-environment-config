@@ -40,13 +40,12 @@ readonly BW_MASTER_PASS
 readonly OPTION_INIT="terraform_init"
 readonly OPTION_PLAN="terraform_plan"
 readonly OPTION_APPLY="terraform_apply"
-readonly OPTION_DOCS="generate_docs"
 readonly OPTION_CLEANUP="cleanup"
 
 
 echo -e "$LOG_INFO Apply Github configuration"
 echo -e "$LOG_INFO ${Y}What do you want me to do?${D}"
-select task in "$OPTION_INIT" "$OPTION_PLAN" "$OPTION_APPLY" "$OPTION_DOCS" "$OPTION_CLEANUP"; do
+select task in "$OPTION_INIT" "$OPTION_PLAN" "$OPTION_APPLY" "$OPTION_CLEANUP"; do
   case "$task" in
     "$OPTION_INIT" )
         bash ./apply-config.sh cleanup
@@ -60,9 +59,6 @@ select task in "$OPTION_INIT" "$OPTION_PLAN" "$OPTION_APPLY" "$OPTION_DOCS" "$OP
     ;;
     "$OPTION_APPLY" )
         bash ./apply-config.sh apply "$TOKEN" "$BW_CLIENT_ID" "$BW_CLIENT_SECRET" "$BW_MASTER_PASS"
-    ;;
-    "$OPTION_DOCS" )
-        bash ./apply-config.sh docs
     ;;
     "$OPTION_CLEANUP" )
         bash ./apply-config.sh cleanup
