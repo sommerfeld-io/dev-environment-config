@@ -49,10 +49,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
-      - name: Checkout code of configs-persistent-data repository
+      - name: Checkout repo which contains the terraform state file
         uses: actions/checkout@v3
         with:
-          repository: sebastian-sommerfeld-io/configs-persistent-data
+          repository: sebastian-sommerfeld-io/dev-environment-config
           token: ${{ secrets.TERRAFORM }}
           path: target/tmp/repos/dev-environment-config
       - name: validate

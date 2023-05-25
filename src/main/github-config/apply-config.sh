@@ -65,7 +65,7 @@ readonly OPTION_VERSION="-version"
 
 readonly TF_PLAN_FILE="tfplan"
 readonly DATA_REPO_PATH="../../../target/tmp/repos"
-readonly DATA_REPO_NAME="dev-environment-config"
+readonly DATA_REPO_NAME="dev-environment-config" # todo ... dedicated private repo 
 readonly TF_STATE_PATH="data/github-config"
 readonly TF_STATE_FILE="terraform.tfstate"
 readonly GITHUB_ACTIONS_USER="runner"
