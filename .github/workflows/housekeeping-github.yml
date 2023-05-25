@@ -49,6 +49,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
+      - name: Checkout code of configs-persistent-data repository
+        uses: actions/checkout@v3
+        with:
+          repository: sebastian-sommerfeld-io/configs-persistent-data
+          token: ${{ secrets.TERRAFORM }}
+          path: /tmp/repos/dev-environment-config
       - name: validate
         run: |
           (

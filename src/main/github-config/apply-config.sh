@@ -229,7 +229,9 @@ function format() {
 #        initialize
 function initialize() {
     mkdir -p "$DATA_REPO_PATH"
+    echo -e "$LOG_INFO Current user = $USER"
 
+    # Pipeline uses dedicated step to clone the repo into this location
     if [ "$USER" != "$GITHUB_ACTIONS_USER" ]; then
         (
             cd "$DATA_REPO_PATH" || exit
