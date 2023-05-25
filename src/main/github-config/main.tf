@@ -43,7 +43,7 @@ data "bitwarden_item_login" "GOOGLE_CHAT_WEBHOOK" {
 }
 
 data "bitwarden_item_login" "GH_TOKEN_REPO_AND_PROJECT" {
-  id = "2eb34eec-db0c-4850-9518-b00d00c55129"
+  id = "d009712e-5f91-42fc-abdd-b00d00cf1948"
 }
 
 # data "bitwarden_item_login" "SNYK_TOKEN" {
