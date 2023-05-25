@@ -10,7 +10,7 @@ yamllint-*
 # terraform
 .terraform
 .terraform.lock*
-#*.tfstate*
+src/main/github-config/terraform.tfstate*
 tfplan
 .bitwarden*
 
