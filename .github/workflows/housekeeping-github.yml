@@ -101,7 +101,9 @@ jobs:
         shell: bash
       - name: Copy help.adoc to Antora partial
         run: |
-          TARGET_ADOC="docs/modules/ROOT/partials/GENERATED/github/config-help.adoc"
+          ADOC_PATH="docs/modules/ROOT/partials/GENERATED/github-config"
+          mkdir -p "$ADOC_PATH"
+          TARGET_ADOC="$ADOC_PATH/help.adoc"
 
           (
               echo "// +----------------------------------------------------+"
