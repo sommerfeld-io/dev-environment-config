@@ -76,9 +76,6 @@ jobs:
             ./apply-config.sh apply ${{ secrets.TERRAFORM }} ${{ secrets.BW_CLIENT_ID }} ${{ secrets.BW_CLIENT_SECRET }} ${{ secrets.BW_MASTER_PASS }}
           )
         shell: bash
-      - name: Wait for a moment
-        run: sleep 10
-        shell: bash
       - name: ALWAYS cleanup
         if: always()
         run: |
@@ -88,49 +85,9 @@ jobs:
           )
         shell: bash
 
-  update-repo:
-    name: Format and Docs
-    runs-on: ubuntu-latest
-    needs: apply-github-config
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: format
-        run: |
-          (
-            cd src/main/github-config || exit
-            ./apply-config.sh fmt
-          )
-        shell: bash
-      - name: Copy help.adoc to Antora partial
-        run: |
-          ADOC_PATH="docs/modules/ROOT/partials/GENERATED/github-config"
-          mkdir -p "$ADOC_PATH"
-          TARGET_ADOC="$ADOC_PATH/help.adoc"
-
-          (
-              echo "// +----------------------------------------------------+"
-              echo "// |                                                    |"
-              echo "// |    DO NOT EDIT DIRECTLY !!!!!                      |"
-              echo "// |                                                    |"
-              echo "// |    See: src/main/github-config/assets/help.adoc    |"
-              echo "// |                                                    |"
-              echo "// +----------------------------------------------------+"
-              echo
-          ) > "$TARGET_ADOC"
-
-          cat src/main/github-config/assets/help.adoc >> "$TARGET_ADOC"
-        shell: bash
-      - name: Commit and push
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: sebastian
-          author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] formatted terraform files and docs update"
-
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['lint-terraform', 'apply-github-config', 'update-repo']
+    needs: ['lint-terraform', 'apply-github-config']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat

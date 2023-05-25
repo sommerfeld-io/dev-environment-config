@@ -14,9 +14,6 @@
 # predictably create, change, and improve infrastructure. It provides infrastructure automation with
 # workflows to build composition, collaboration, and reuse of infrastructure as code.
 #
-# .Available Terraform commands
-# include::ROOT:partial$GENERATED/github-config/help.adoc[]
-#
 # Use `xref:AUTO-GENERATED:bash-docs/src/main/github/run-local-sh.adoc[run-local.sh]` while developing
 # on your localhost instead of direct calls to this script. `run-local.sh` provides a more conviniert
 # way to trigger the terraform commands.
@@ -74,8 +71,6 @@ readonly GITHUB_ACTIONS_USER="runner"
 TF_COMMAND="$1"
 if [ -z "$TF_COMMAND" ]; then
     echo -e "$LOG_ERROR Param missing: Terraform command"
-    echo -e "$LOG_ERROR Available arguments are:"
-    cat assets/help.adoc
     echo -e "$LOG_ERROR exit" && exit 8
 fi
 readonly TF_COMMAND
@@ -295,8 +290,6 @@ case "$TF_COMMAND" in
     "$OPTION_VERSION" ) version ;;
     * )
         echo -e "$LOG_ERROR Invalid argument"
-        echo -e "$LOG_ERROR Available arguments are:"
-        cat assets/help.adoc
         ;;
 esac
 echo -e "$LOG_DONE Finished Github configuration step: $P$TF_COMMAND$D"
