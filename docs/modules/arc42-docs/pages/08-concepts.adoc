@@ -1,6 +1,9 @@
 = 08 - Cross-cutting Concepts
 :description: This section describes overall, principal regulations and solution ideas that are relevant in multiple parts (= cross-cutting) of your system.
 
+== Issues and Github projects
+To automatically link issues and pull requests to the link:https://github.com/orgs/sommerfeld-io/projects/1/views/1[sommerfeld-io organization project], a GitHub Actions workflow is triggered every time an issue or pull request is raised. This workflow assigns the issue / pull request to the project. The workflow is managed centrally by Terraform. This approach ensures consistency and reduces manual effort across all repositories within the organization. 
+
 == Manage Github Config and Repositories with Terraform
 To maintain a centralized and consistent approach to managing GitHub repositories and configurations, we useuse Terraform as a tool for provisioning and managing these resources. 
 

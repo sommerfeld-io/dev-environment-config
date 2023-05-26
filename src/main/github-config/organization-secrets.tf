@@ -2,7 +2,7 @@ data "bitwarden_item_login" "GOOGLE_CHAT_WEBHOOK" {
   id = "e2e02ec2-580b-4823-94bb-af70014ca324"
 }
 
-data "bitwarden_item_login" "GH_TOKEN_REPO_AND_PROJECT" {
+data "bitwarden_item_login" "GH_TOKEN_PROJECT_ISSUES" {
   id = "d009712e-5f91-42fc-abdd-b00d00cf1948"
 }
 
@@ -20,8 +20,8 @@ resource "github_actions_organization_secret" "GOOGLE_CHAT_WEBHOOK" {
   visibility      = "all"
 }
 
-resource "github_actions_organization_secret" "GH_TOKEN_REPO_AND_PROJECT" {
-  secret_name     = data.bitwarden_item_login.GH_TOKEN_REPO_AND_PROJECT.username
-  plaintext_value = data.bitwarden_item_login.GH_TOKEN_REPO_AND_PROJECT.password
+resource "github_actions_organization_secret" "GH_TOKEN_PROJECT_ISSUES" {
+  secret_name     = data.bitwarden_item_login.GH_TOKEN_PROJECT_ISSUES.username
+  plaintext_value = data.bitwarden_item_login.GH_TOKEN_PROJECT_ISSUES.password
   visibility      = "all"
 }
