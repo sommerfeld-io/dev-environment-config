@@ -30,8 +30,11 @@ FontName Ubuntu
 }
 
 actor me as "sebastian-sommerfeld-io" <<My Github User>>
-collections secrets
-me --> secrets
+component secrets {
+    entity GH_TOKEN_PROJECT_ISSUES <<Actions Secret>>
+    entity GOOGLE_CHAT_WEBHOOK <<Actions Secret>>
+}
+me -right-> secrets
 note left of secrets: Create manually
 
 component vault as "Bitwarden\nVault"
@@ -40,9 +43,8 @@ secrets -> vault
 component dev_repo as "dev-environment-config" <<Repo>> {
     file tf as "Terraform\nConfig"
     note right of tf: Write Github Actions secrets\nto Organization and Repos
-    
-    entity TERRAFORM <<Actions Secret>>
-    
+
+    entity TERRAFORM <<Actions Secret>>    
     entity BW_CLIENT_ID <<Actions Secret>>
     entity BW_CLIENT_SECRET <<Actions Secret>>
     entity BW_MASTER_PASS <<Actions Secret>>
@@ -66,8 +68,11 @@ tf -down-> r3
 @enduml
 ----
 
-. Token `TERRAFORM` Personal Access Token (classic)
+. Token `TERRAFORM` -> Personal Access Token (classic)
 .. Configured for user `sebastian-sommerfeld-io`
 .. `admin:org`, `read:user`, `repo`, `workflow`
+. Token `GH_TOKEN_PROJECT_ISSUES` -> Personal Access Token (classic)
+.. Configured for user `sebastian-sommerfeld-io`
+.. `project`, `read:user`, `repo`, `write:org`
 
 By adopting this approach, we can achieve a unified and streamlined process for managing GitHub repositories and configurations. Terraform provides the necessary tools and capabilities to establish a single source of truth, improving efficiency, governance, and collaboration within the organization's development workflow.
