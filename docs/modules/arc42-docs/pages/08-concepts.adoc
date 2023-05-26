@@ -73,6 +73,6 @@ tf -down-> r3
 .. `admin:org`, `read:user`, `repo`, `workflow`
 . Token `GH_TOKEN_PROJECT_ISSUES` -> Personal Access Token (classic)
 .. Configured for user `sebastian-sommerfeld-io`
-.. `project`, `read:user`, `repo`, `write:org`
+.. `project`, `read:user`, `repo`, `admin:org`
 
 By adopting this approach, we can achieve a unified and streamlined process for managing GitHub repositories and configurations. Terraform provides the necessary tools and capabilities to establish a single source of truth, improving efficiency, governance, and collaboration within the organization's development workflow.
