@@ -31,7 +31,7 @@ FontName Ubuntu
 
 actor me as "sebastian-sommerfeld-io" <<My Github User>>
 component secrets {
-    entity GH_TOKEN_PROJECT_ISSUES <<Actions Secret>>
+    entity GH_TOKEN_PROJECT_HOUSEKEEPING <<Actions Secret>>
     entity GOOGLE_CHAT_WEBHOOK <<Actions Secret>>
 }
 me -right-> secrets
@@ -71,7 +71,7 @@ tf -down-> r3
 . Token `TERRAFORM` -> Personal Access Token (classic)
 .. Configured for user `sebastian-sommerfeld-io`
 .. `admin:org`, `read:user`, `repo`, `workflow`
-. Token `GH_TOKEN_PROJECT_ISSUES` -> Personal Access Token (classic)
+. Token `GH_TOKEN_PROJECT_HOUSEKEEPING` -> Personal Access Token (classic)
 .. Configured for user `sebastian-sommerfeld-io`
 .. `project`, `read:user`, `repo`, `admin:org`
 
