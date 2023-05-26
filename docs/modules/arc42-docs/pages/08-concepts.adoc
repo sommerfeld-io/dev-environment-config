@@ -26,44 +26,43 @@ skinparam activity {
 FontName Ubuntu
 }
 
-actor me as "sebastian-sommerfeld-io"
-entity GH_TOKEN_REPO_AND_PROJECT <<Fine Grained Access Token>>
-me -> GH_TOKEN_REPO_AND_PROJECT
-note right of me: Create manually
-note left of GH_TOKEN_REPO_AND_PROJECT: Store manually\nin Bitwarden
+actor me as "sebastian-sommerfeld-io" <<My Github User>>
+collections secrets
+me --> secrets
+note left of secrets: Create manually
 
 component vault as "Bitwarden\nVault"
-GH_TOKEN_REPO_AND_PROJECT -> vault
+secrets -> vault
 
 component dev_repo as "dev-environment-config" <<Repo>> {
     file tf as "Terraform\nConfig"
     note right of tf: Write Github Actions secrets\nto Organization and Repos
     
-    entity TERRAFORM <<Actions Secret + Classic Access Token>>
+    entity TERRAFORM <<Actions Secret>>
     
     entity BW_CLIENT_ID <<Actions Secret>>
     entity BW_CLIENT_SECRET <<Actions Secret>>
     entity BW_MASTER_PASS <<Actions Secret>>
+    
+    BW_CLIENT_ID -[hidden]right- BW_CLIENT_SECRET
+    BW_CLIENT_SECRET -[hidden]right- BW_MASTER_PASS
 }
+
 vault -down-> tf
 
-component org as "Github\nOrganization"
+component org as "sommerfeld-io" <<Github Organization>>
 database r1 as "Repo\n1"
 database r2 as "Repo\n..."
 database r3 as "Repo\nn"
 
-tf -> org
-tf -> r1
-tf -> r2
-tf -> r3
+tf -down--> org
+tf -down-> r1
+tf -down-> r2
+tf -down-> r3
 
 @enduml
 ----
 
-. Token `GH_TOKEN_REPO_AND_PROJECT` (valid for 90 days)
-.. Configured for user `sebastian-sommerfeld-io`
-.. Read access to metadata
-.. Read and Write access to code, secrets, and workflows 
 . Token `TERRAFORM` Personal Access Token (classic)
 .. Configured for user `sebastian-sommerfeld-io`
 .. `admin:org`, `read:user`, `repo`, `workflow`
