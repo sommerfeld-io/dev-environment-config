@@ -8,5 +8,5 @@ data "github_repository" "infrastructure-config" {
 module "infrastructure-config-housekeeping" {
   source    = "./modules/housekeeping"
   repo_name = data.github_repository.infrastructure-config.id
-  project   = "https://github.com/orgs/sommerfeld-io/projects/1"
+  project   = var.default_project
 }
