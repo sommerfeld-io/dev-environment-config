@@ -16,7 +16,7 @@
 # * PULL_REQUEST_TEMPLATE.md
 #
 # Once the initial setup (by running this script) is done, this script is executed regularly by
-# a Github actions workflow to ensure settings always stay up-to-date.
+# a Github actions workflow (`housekeeping-repo.yml`) to ensure settings always stay up-to-date.
 #
 # === Prerequisites
 #
@@ -39,8 +39,8 @@
 # ```
 # ./bootstrap.sh
 #
-# TODO export GITHUB_TOKEN="...the...token..."
-# TODO place github url | bash - ... or something like that to invoke from the internet
+# curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/automated-repository-housekeeping/src/main/github-config/bootstrap.sh | bash -
+# TODO URL from main branch
 # ```
 
 
@@ -48,6 +48,19 @@ set -o errexit
 set -o pipefail
 set -o nounset
 # set -o xtrace
+
+
+# BaseURL of this repository including branch
+readonly GITHUB_BASEURL="https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/automated-repository-housekeeping"
+
+
+readonly FOLDER_GITHUB=".github"
+if [ ! -d "$FOLDER_GITHUB" ] 
+then
+    echo -e "$LOG_ERROR Expected directory $FOLDER_GITHUB to be present"
+    echo -e "$LOG_ERROR Check if the current working directory is the project root"
+    exit 8
+fi
 
 
 # readonly LOG_DONE="[\e[32mDONE\e[0m]"
@@ -61,3 +74,16 @@ readonly LOG_INFO="[\e[34mINFO\e[0m]"
 
 
 echo -e "$LOG_INFO Run bootstrap script to provision github repository"
+
+
+echo -e "$LOG_INFO Create workflow files"
+readonly workflow_files=(
+    "housekeeping-labels.yml"
+    "housekeeping-issues.yml"
+)
+
+for wf in "${workflow_files[@]}"
+do 
+    echo -e "$LOG_INFO Create $wf"
+    curl "$GITHUB_BASEURL/src/main/github-config/assets/workflows/$wf" --output "$FOLDER_GITHUB/workflows/$wf"
+done
