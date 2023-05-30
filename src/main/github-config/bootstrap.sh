@@ -82,12 +82,12 @@ function createWorkflowFiles() {
     echo -e "$LOG_INFO Create workflow files"
     mkdir -p "$FOLDER_GITHUB/workflows"
 
-    readonly workflow_files=(
+    local files=(
         "housekeeping-labels.yml"
         "housekeeping-issues.yml"
     )
 
-    for file in "${workflow_files[@]}"
+    for file in "${files[@]}"
     do 
         echo -e "$LOG_INFO Create $file"
         curl "$GITHUB_BASEURL/src/main/github-config/assets/workflows/$file" --output "$FOLDER_GITHUB/workflows/$file"
@@ -103,12 +103,12 @@ function createIssueTemplates() {
     echo -e "$LOG_INFO Create issue template files"
     mkdir -p "$FOLDER_GITHUB/ISSUE_TEMPLATE"
 
-    readonly template_files=(
+    local files=(
         "risk-or-technical-debt.md"
         "user-story.md"
     )
 
-    for file in "${template_files[@]}"
+    for file in "${files[@]}"
     do 
         echo -e "$LOG_INFO Create $file"
         curl "$GITHUB_BASEURL/src/main/github-config/assets/templates/$file" --output "$FOLDER_GITHUB/ISSUE_TEMPLATE/$file"
@@ -123,7 +123,7 @@ function createIssueTemplates() {
 function createPullRequestTemplate() {
     echo -e "$LOG_INFO Create Pull Request template"
 
-    readonly files=(
+    local files=(
         "PULL_REQUEST_TEMPLATE.md"
     )
 
