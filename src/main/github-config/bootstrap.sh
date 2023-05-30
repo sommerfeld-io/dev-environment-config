@@ -37,10 +37,7 @@
 #
 # [source, bash]
 # ```
-# ./bootstrap.sh
-#
-# curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/automated-repository-housekeeping/src/main/github-config/bootstrap.sh | bash -
-# TODO URL from main branch
+# curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -
 # ```
 
 
@@ -50,8 +47,18 @@ set -o nounset
 # set -o xtrace
 
 
+# readonly LOG_DONE="[\e[32mDONE\e[0m]"
+readonly LOG_ERROR="[\e[1;31mERROR\e[0m]"
+readonly LOG_INFO="[\e[34mINFO\e[0m]"
+# readonly LOG_WARN="[\e[93mWARN\e[0m]"
+# readonly Y="\e[93m"
+# readonly P="\e[35m"
+# readonly D="\e[0m"
+# readonly G='\033[1;30m'
+
+
 # BaseURL of this repository including branch
-readonly GITHUB_BASEURL="https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/automated-repository-housekeeping"
+readonly GITHUB_BASEURL="https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main"
 
 
 readonly FOLDER_GITHUB=".github"
@@ -61,17 +68,6 @@ then
     echo -e "$LOG_ERROR Check if the current working directory is the project root"
     exit 8
 fi
-
-
-# readonly LOG_DONE="[\e[32mDONE\e[0m]"
-# readonly LOG_ERROR="[\e[1;31mERROR\e[0m]"
-readonly LOG_INFO="[\e[34mINFO\e[0m]"
-# readonly LOG_WARN="[\e[93mWARN\e[0m]"
-# readonly Y="\e[93m"
-# readonly P="\e[35m"
-# readonly D="\e[0m"
-# readonly G='\033[1;30m'
-
 
 
 # @description Download workflow files from remote repository and write to ``.github`` folder.
