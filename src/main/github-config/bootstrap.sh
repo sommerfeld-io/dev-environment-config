@@ -73,17 +73,69 @@ readonly LOG_INFO="[\e[34mINFO\e[0m]"
 # readonly G='\033[1;30m'
 
 
+
+# @description Download workflow files from remote repository and write to ``.github`` folder.
+#
+# @example
+#    createWorkflowFiles
+function createWorkflowFiles() {
+    echo -e "$LOG_INFO Create workflow files"
+    mkdir -p "$FOLDER_GITHUB/workflows"
+
+    readonly workflow_files=(
+        "housekeeping-labels.yml"
+        "housekeeping-issues.yml"
+    )
+
+    for file in "${workflow_files[@]}"
+    do 
+        echo -e "$LOG_INFO Create $file"
+        curl "$GITHUB_BASEURL/src/main/github-config/assets/workflows/$file" --output "$FOLDER_GITHUB/workflows/$file"
+    done
+}
+
+
+# @description Download issue template files from remote repository and write to ``.github`` folder.
+#
+# @example
+#    createIssueTemplates
+function createIssueTemplates() {
+    echo -e "$LOG_INFO Create issue template files"
+    mkdir -p "$FOLDER_GITHUB/ISSUE_TEMPLATE"
+
+    readonly template_files=(
+        "risk-or-technical-debt.md"
+        "user-story.md"
+    )
+
+    for file in "${template_files[@]}"
+    do 
+        echo -e "$LOG_INFO Create $file"
+        curl "$GITHUB_BASEURL/src/main/github-config/assets/templates/$file" --output "$FOLDER_GITHUB/ISSUE_TEMPLATE/$file"
+    done
+}
+
+
+# @description Download issue template files from remote repository and write to ``.github`` folder.
+#
+# @example
+#    createPullRequestTemplate
+function createPullRequestTemplate() {
+    echo -e "$LOG_INFO Create Pull Request template"
+
+    readonly template_files=(
+        "PULL_REQUEST_TEMPLATE.md"
+    )
+
+    for file in "${template_files[@]}"
+    do 
+        echo -e "$LOG_INFO Create $file"
+        curl "$GITHUB_BASEURL/src/main/github-config/assets/$file" --output "$FOLDER_GITHUB/$file"
+    done
+}
+
+
 echo -e "$LOG_INFO Run bootstrap script to provision github repository"
-
-
-echo -e "$LOG_INFO Create workflow files"
-readonly workflow_files=(
-    "housekeeping-labels.yml"
-    "housekeeping-issues.yml"
-)
-
-for wf in "${workflow_files[@]}"
-do 
-    echo -e "$LOG_INFO Create $wf"
-    curl "$GITHUB_BASEURL/src/main/github-config/assets/workflows/$wf" --output "$FOLDER_GITHUB/workflows/$wf"
-done
+createWorkflowFiles
+createIssueTemplates
+createPullRequestTemplate
