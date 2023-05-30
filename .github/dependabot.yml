@@ -5,7 +5,3 @@ updates:
     directory: /
     schedule:
       interval: weekly
-  - package-ecosystem: terraform
-    directory: src/main/github-config
-    schedule:
-      interval: weekly
