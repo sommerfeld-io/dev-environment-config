@@ -1,0 +1,2 @@
+= Development Environment Config
+Common configs for Github and all repositories

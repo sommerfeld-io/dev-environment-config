@@ -1,0 +1,3 @@
+* xref:index.adoc[]
+* How To
+** xref:howto/setup-new-repo.adoc[]
