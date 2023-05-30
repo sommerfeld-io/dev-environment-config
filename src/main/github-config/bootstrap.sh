@@ -123,15 +123,9 @@ function createIssueTemplates() {
 function createPullRequestTemplate() {
     echo -e "$LOG_INFO Create Pull Request template"
 
-    local files=(
-        "PULL_REQUEST_TEMPLATE.md"
-    )
-
-    for file in "${files[@]}"
-    do 
-        echo -e "$LOG_INFO Create $file"
-        curl "$GITHUB_BASEURL/src/main/github-config/assets/$file" --output "$FOLDER_GITHUB/$file"
-    done
+    local file="PULL_REQUEST_TEMPLATE.md"
+    echo -e "$LOG_INFO Create $file"
+    curl "$GITHUB_BASEURL/src/main/github-config/assets/$file" --output "$FOLDER_GITHUB/$file"
 }
 
 
