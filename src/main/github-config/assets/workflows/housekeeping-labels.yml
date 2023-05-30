@@ -5,9 +5,13 @@ name: "Housekeeping: Labels"
 # |                                                    |
 # |    DO NOT EDIT DIRECTLY !!!!!                      |
 # |                                                    |
-# |    File is managed by terraform. Update file in    |
-# |    sommerfeld-io/dev-envorinment-config repo so    |
-# |    you can apply changes to all repos.             |
+# |    File is created from a bootstrap script and     |
+# |    most likely auto-generated from a github        |
+# |    actions workflow. So any changes will be        |
+# |    overwritten regularly.                          |
+# |                                                    |
+# |    See sommerfeld-io/dev-environment-config        |
+# |    repo for master.                                |
 # |                                                    |
 # +----------------------------------------------------+
 
@@ -34,7 +38,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup labels
         env:
-          GITHUB_TOKEN: $${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh label delete "documentation" --yes || true
           gh label delete "duplicate" --yes || true
@@ -69,6 +73,6 @@ jobs:
         if: always()
         uses: Co-qn/google-chat-notification@releases/v1
         with:
-          name: $${{ github.workflow }}
-          url: $${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          name: ${{ github.workflow }}
+          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
           status: failure

@@ -5,9 +5,10 @@ name: "Housekeeping: Issues + PRs"
 # |                                                    |
 # |    DO NOT EDIT DIRECTLY !!!!!                      |
 # |                                                    |
-# |    File is managed by terraform. Update file in    |
-# |    sommerfeld-io/dev-envorinment-config repo so    |
-# |    you can apply changes to all repos.             |
+# |    File is created from a jarvis module and most   |
+# |    likely auto-generated from a github actions     |
+# |    workflow. So any changes will be overwritten    |
+# |    regularly.                                      |
 # |                                                    |
 # +----------------------------------------------------+
 
@@ -25,7 +26,7 @@ permissions:
   issues: write
   pull-requests: write
   repository-projects: write
-  
+
 jobs:
   add-issue-to-project:
     name: Add to project
@@ -35,7 +36,7 @@ jobs:
         uses: actions/checkout@v3
       # - name: Add to project (issues and PRs)
       #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN_PROJECT_HOUSEKEEPING }} # TODO USE DEDICATED TOKEN WITH PROJECT SCOPE !!!
+      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }} # TODO USE DEDICATED TOKEN WITH PROJECT SCOPE !!!
       #   run: |
       #     gh issue edit ${{github.event.issue.number}} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
       #   shell: bash
@@ -43,7 +44,7 @@ jobs:
         uses: actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/sommerfeld-io/projects/1
-          github-token: ${{ secrets.GH_TOKEN_PROJECT_HOUSEKEEPING }}
+          github-token: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
 
   assign-issue-to-user:
     name: Assign to user
@@ -72,7 +73,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: ['task']
+              labels: [task]
             })
 
   on-failure:
