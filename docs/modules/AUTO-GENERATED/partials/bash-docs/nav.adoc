@@ -1,0 +1,1 @@
+* `xref:AUTO-GENERATED:bash-docs/src/main/github-config/bootstrap-sh.adoc[src/main/github-config/bootstrap.sh]`
