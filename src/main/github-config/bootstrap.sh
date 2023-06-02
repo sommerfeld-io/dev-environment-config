@@ -2,21 +2,27 @@
 # @file bootstrap.sh
 # @brief Bootstrap script to configure a Github repository for the sommerfeld-io organization.
 #
-# @description Bootstrap script to configure a Github repository for the
-# link:https://github.com/sommerfeld-io[sommerfeld-io] organization. This script creates the
-# following objects:
+# @description This script is a bootstrap script designed to simplify the configuration of a
+# GitHub repository. This script automates the process of creating centrally managed issue
+# templates and GitHub Actions workflows, making it easier to set up and manage the projects
+# on GitHub.
+#
+# This script is used every repository that is part of the link:https://github.com/sommerfeld-io[sommerfeld-io]
+# organization. This establishes consistent standards and workflows across all repositories.
+#
+# . This script creates the following objects:
 #
 # * Github Actions workflows:
-# ** housekeeping-issues.yml
-# ** housekeeping-labels.yml
-# ** housekeeping-repo.yml
+# ** ``housekeeping-issues.yml``
+# ** ``housekeeping-labels.yml``
+# ** ``housekeeping-repo.yml``
 # * Issue Templates:
-# ** risk-or-technical-debt.md
-# ** user-story.md
-# * PULL_REQUEST_TEMPLATE.md
+# ** ``risk-or-technical-debt.md``
+# ** ``user-story.md``
+# * ``PULL_REQUEST_TEMPLATE.md``
 #
-# Once the initial setup (by running this script) is done, this script is executed regularly by
-# a Github actions workflow (`housekeeping-repo.yml`) to ensure settings always stay up-to-date.
+# Once the initial setup is done (by running this script), this script is executed regularly by
+# a Github actions workflow (``housekeeping-repo.yml``) to ensure settings always stay up-to-date.
 #
 # === Prerequisites
 #
@@ -24,8 +30,8 @@
 # organization needs the following configs:
 #
 # * Organisation Secrets
-# ** GH_TOKEN_REPO_AND_PROJECT -> The personal access token (classic) which is configured for my user "sebastian-sommerfeld-io". The token needs `admin:org`, project`, `read:user` and `repo` permissions.
-# ** GOOGLE_CHAT_WEBHOOK
+# ** ``GH_TOKEN_REPO_AND_PROJECT``: The personal access token (classic) which is configured for my user "sebastian-sommerfeld-io". The token needs `admin:org`, project`, `read:user` and `repo` permissions.
+# ** ``GOOGLE_CHAT_WEBHOOK``
 #
 # === Script Arguments
 #
