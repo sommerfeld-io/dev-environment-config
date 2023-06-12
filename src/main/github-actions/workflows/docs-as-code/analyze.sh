@@ -6,7 +6,7 @@
 # link:https://www.jetbrains.com/de-de/qodana[Qodana] The script is downloaded by the
 # ``docs-as-code.yml`` workflow and executed as part of the workflow.
 #
-# The base iamge for the custom Docker image which is built during the workflow execution is
+# The base image for the custom Docker image which is built during the workflow execution is
 # link:https://hub.docker.com/r/jetbrains/qodana[``jetbrains/qodana``].
 #
 # === Script Arguments
