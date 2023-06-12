@@ -25,24 +25,25 @@
 #   security-events: write
 # steps:
 #   - name: Checkout code
-#     uses: actions/checkout@v3
-#   - name: Run Qodana
-#     run: |
-#       files=(
-#         "analyze.sh"
-#         "Dockerfile"
-#         "qodana.yaml"
-#       )
-#
-#       for f in "${files[@]}"
-#       do
-#         echo "[INFO] Download $f"
-#         curl "https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-actions/workflows/docs-as-code/$f" --output "$f"
-#       done
-#
-#       chmod +x analyze.sh
-#       ./analyze.sh --save-report
-#     shell: bash
+#       uses: actions/checkout@v3
+#     - name: Download dependencies
+#       run: |
+#         files=(
+#           "analyze.sh"
+#           "Dockerfile"
+#           "qodana.yaml"
+#         )
+#         for f in "${files[@]}"
+#         do
+#           echo "[INFO] Download $f"
+#           curl "https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-actions/workflows/docs-as-code/$f" --output "$f"
+#         done
+#       shell: bash
+#     - name: Run Qodana
+#       run: |
+#         chmod +x analyze.sh
+#         ./analyze.sh --save-report
+#       shell: bash
 #   - name: Upload qodana result to Github Code Scanning
 #     uses: github/codeql-action/upload-sarif@v2
 #     with:
