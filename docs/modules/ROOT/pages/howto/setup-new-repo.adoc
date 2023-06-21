@@ -2,15 +2,15 @@
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 . Create repository on Github in the link:https://github.com/sommerfeld-io[sommerfeld-io] organization
-. Use jarvis to setup an Antora module ... TODO link to docs page
-. Use jarvis to setup arc42 docs inside the Antora module (if needed) ... TODO link to docs page
-. Use the bootstrap script from this repo to setup basic Github Actions workflows, PR template and issue templates: `curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -` ... TODO link to docs page
-. Create secrets for this repository and document them
+. Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup an Antora module
+. Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup arc42 docs inside the Antora module (if needed)
+. Use the bootstrap script from this repo to setup basic Github Actions workflows, PR template and issue templates: `curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -`  ... _TODO link to docs page_
+. Create secrets for this repository (if needed) and document them
 . Create organization secrets (if needed) and document them
 
 IMPORTANT: TODO link to the bootstrap.sh docs file because there are some prerequisistes mentioned!!!
 
 == Github Config, Issues, PRs and Projects
-To maintain a centralized and consistent approach to managing GitHub repositories and configurations, a Github Actions workflow should be present in every repository (created by the bootstrap script mentioned above). This ensures some mandatory files and workflows are present and the repository config is consistent across all repositories  of the link:https://github.com/sommerfeld-io[sommerfeld-io organization].
+To maintain a centralized and consistent approach to managing GitHub repositories and configurations, a Github Actions workflow should be present in every repository (created by the bootstrap script mentioned above). This ensures some mandatory files and workflows are present and the repository config is consistent across all repositories of the link:https://github.com/sommerfeld-io[sommerfeld-io organization].
 
 To automatically link issues and pull requests to the link:https://github.com/orgs/sommerfeld-io/projects/1/views/1[sommerfeld-io organization project], a GitHub Actions workflow is triggered every time an issue or pull request is raised. This workflow assigns the issue / pull request to the project. The workflow is managed centrally by Terraform. This approach ensures consistency and reduces manual effort across all repositories within the organization. 
