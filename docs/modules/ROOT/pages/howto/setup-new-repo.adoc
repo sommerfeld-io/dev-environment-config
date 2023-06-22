@@ -5,10 +5,9 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup an Antora module
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup arc42 docs inside the Antora module (if needed)
 . Use the bootstrap script `xref:AUTO-GENERATED:bash-docs/src/main/github-config/bootstrap-sh.adoc[src/main/github-config/bootstrap.sh]` from this repo to setup basic Github Actions workflows, Pull Request template and issue templates: `curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -`
+. Use `gh repo edit --enable-discussions --enable-issues --enable-projects --enable-wiki=false --visibility=public` to configure the remote repository
 . Create secrets for this repository (if needed) and document them
 . Create organization secrets (if needed) and document them
-
-IMPORTANT: Use the `xref:AUTO-GENERATED:bash-docs/src/main/github-config/new-repository-sh.adoc[src/main/github-config/new-repository.sh]` script to avoid creating everything manually.
 
 == Github Config, Issues, Pull Requests and Projects
 To maintain a centralized and consistent approach to managing GitHub repositories and configurations, a Github Actions workflow should be present in every repository (created by the bootstrap script mentioned above). This ensures some mandatory files and workflows are present and the repository config is consistent across all repositories of the link:https://github.com/sommerfeld-io[sommerfeld-io organization].
