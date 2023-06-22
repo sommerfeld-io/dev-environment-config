@@ -1,2 +1,3 @@
 * `xref:AUTO-GENERATED:bash-docs/src/main/github-actions/workflows/docs-as-code/analyze-sh.adoc[src/main/github-actions/workflows/docs-as-code/analyze.sh]`
 * `xref:AUTO-GENERATED:bash-docs/src/main/github-config/bootstrap-sh.adoc[src/main/github-config/bootstrap.sh]`
+* `xref:AUTO-GENERATED:bash-docs/src/main/github-config/new-repository-sh.adoc[src/main/github-config/new-repository.sh]`
