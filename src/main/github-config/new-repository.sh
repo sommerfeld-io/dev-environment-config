@@ -61,6 +61,7 @@ LOG_INFO "Choose directory to change into"
 LOG_WARN "Make sure to choose the newly created and cloned repo"
 select dir in ./*; do
   (
+    LOG_INFO "Change directory"
     cd "$dir" || exit
     
     LOG_INFO "Initialize woprkflows, issue templates, linter definitions, etc."
