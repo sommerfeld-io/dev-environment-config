@@ -1,6 +1,9 @@
 = Setup new Repository
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
+Setting a new repository on Github should follow the same process to make sure all repos follow the same configuration and layout.
+
+== Creating a new Repository
 . Create repository on Github in the link:https://github.com/sommerfeld-io[sommerfeld-io] organization
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup an Antora module
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup arc42 docs inside the Antora module (if needed)
