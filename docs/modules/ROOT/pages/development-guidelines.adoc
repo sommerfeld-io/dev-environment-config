@@ -12,7 +12,7 @@ We employ version control to manage and track changes made to our production sys
 
 By extending version control to encompass the management of tools, third-party software and production environment, we maintain a firm grip on the external factors that can impact our software development and our runtime environments. This approach allows us to minimize the risk of uncontrolled changes.
 
-== Practive Continuous Integration
+== Continuous Integration
 We integrate code changes from all developers at least once per day. This frequent integration ensures that our software is thoroughly tested and checked with everyone's changes on a daily basis.
 
 We work with short lived (feature) branches. But we won't hide work on separate branches for longer than a working day before integrating them together.
