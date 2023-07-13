@@ -68,16 +68,16 @@ FontName Ubuntu
 file code as "Source\nCode" #E18114
 database code_repo as "Code\nRepo" #E18114
 database artifact_repo as "Artifact\nRepo"
-control ci as "Automated Tests\nCI Builds\n..." #E18114
+control ci as "Automated Tests\nSoftware Builds\nCode Scans\netc." #E18114
 
 code -> code_repo
 code_repo -right-> ci
 ci -down-> artifact_repo
 
-control more as "More Tests" #35A339
-control acceptance as "Acceptance Tests" #35A339
-control security as "Security Tests" #35A339
-control performance as "Performance Tests" #35A339
+control more as "More\nTests" #35A339
+control acceptance as "Acceptance\nTests" #35A339
+control security as "Security\nTests" #35A339
+control performance as "Performance\nTests" #35A339
 artifact_repo -right-> acceptance
 artifact_repo -down-> security
 artifact_repo -down-> performance
