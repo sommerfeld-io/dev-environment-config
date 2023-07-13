@@ -54,6 +54,7 @@ skinparam NoteBackgroundColor transparent
 skinparam ComponentBorderColor #e6edf3
 skinparam ComponentFontColor #e6edf3
 skinparam DatabaseBorderColor #e6edf3
+skinparam DatabaseBackgroundColor #444
 skinparam DatabaseFontColor #e6edf3
 skinparam FileBorderColor #e6edf3
 skinparam FileFontColor #e6edf3
@@ -66,7 +67,7 @@ FontName Ubuntu
 
 file code as "Source\nCode" #E18114
 database code_repo as "Code\nRepo" #E18114
-database artifact_repo as "Artifact\nRepo" #E18114
+database artifact_repo as "Artifact\nRepo"
 control ci as "Automated Tests\nCI Builds\n..." #E18114
 
 code -> code_repo
