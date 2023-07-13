@@ -1,0 +1,16 @@
+= Development Tools
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+These tools and concepts serve as the cornerstone of our software development and deployment toolkit, forming the building blocks that drive our software development and deployment workflows.
+
+== ... (dedicated page ??!!)
+Something about our tool infrastructure
+DockerHub = Yes
+Artifactory = No
+Where do we deploy what kind of artifact to?
+Where do we host code?
+
+== As much as possible in containers
+Tools
+Ship our softwre in containers
+Our infrastructure runs our software in containers in the cloud. No classic hosting / virtual servers / ...

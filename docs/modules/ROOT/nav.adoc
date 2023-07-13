@@ -1,4 +1,6 @@
 * xref:ROOT:index.adoc[]
 * xref:ROOT:github-organization-settings.adoc[]
+* xref:ROOT:development-guidelines.adoc[]
+* xref:ROOT:development-tools.adoc[]
 * How To
 ** xref:ROOT:howto/setup-new-repo.adoc[]
