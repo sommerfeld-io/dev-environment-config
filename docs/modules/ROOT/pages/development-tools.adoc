@@ -3,14 +3,82 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 These tools and concepts serve as the cornerstone of our software development and deployment toolkit, forming the building blocks that drive our software development and deployment workflows.
 
-== ... (dedicated page ??!!)
-Something about our tool infrastructure
-DockerHub = Yes
-Artifactory = No
-Where do we deploy what kind of artifact to?
-Where do we host code?
-
 == As much as possible in containers
-Tools
-Ship our softwre in containers
-Our infrastructure runs our software in containers in the cloud. No classic hosting / virtual servers / ...
+We prioritize running as many components as possible in Docker containers within our organization. This includes our own software applications, 3rd party tools usd for develpment, and project dependencies. By containerizing these elements, we enhance portability, and consistency across different environments, while minizing the requirements for development workstations.
+
+Whenever feasible, we package and ship our software using Docker containers. Docker containers serve as the preferred format for shipping executable components of our applications. However, for non-executable artifacts such as Jar files or Zip files, we employ alternative packaging methods. For instance, the Antora UI bundle, as an example, is published as a Zip file attachment to a GitHub release, ensuring the appropriate distribution and availability of the artifact.
+
+== Code Repositories
+Each project is hosted within its dedicated repository on GitHub. All projects, that provide any service to www.sommerfeld.io, are part of the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization], ensuring centralized management and fostering collaboration across our entire software ecosystem.
+
+== Automated Pipelines
+For every project within the Sommerfeld-io organization, we employ GitHub Actions as our go-to solution for implementing automated pipelines and workflows. 
+
+== Artifact Repositories
+We employ two types of repositories. DockerHub serves as our primary artifact repository for storing and distributing Docker images, providing a reliable and efficient solution for containerized components.
+
+The second repository is not traditionally considered a repositorybut currently fulfills our needs. We leverage GitHub releases, which allow us to attach artifacts such as the Antora UI bundle Zip file, ensuring a way to distribute non-Docker packages.
+
+At present, the Antora UI bundle stands as the sole artifact that deviates from our standard practice of shipping as a Docker image. While solutions like Artifactory exist to handle artifacts in a dedicated repository, implementing such a solution would introduce significant overhead for managing a single software product. As a result, considering the limited scope of artifact publishing needs, we have opted to use alternative methods, such as attaching the Antora UI bundle as a file in GitHub releases, to avoid unnecessary complexity.
+
+[plantuml, puml-build-image, svg]
+----
+@startuml
+
+skinparam linetype ortho
+skinparam monochrome false
+skinparam componentStyle uml2
+skinparam backgroundColor #0D1117
+skinparam ArrowColor #e6edf3
+skinparam NoteBorderColor #e6edf3
+skinparam NoteFontColor #e6edf3
+skinparam NoteBackgroundColor transparent
+skinparam ComponentBorderColor #e6edf3
+skinparam ComponentFontColor #e6edf3
+skinparam DatabaseBorderColor #e6edf3
+skinparam DatabaseBackgroundColor #444
+skinparam DatabaseFontColor #e6edf3
+skinparam FileBorderColor #e6edf3
+skinparam FileFontColor #e6edf3
+skinparam ControlBorderColor #e6edf3
+skinparam ControlFontColor #e6edf3
+skinparam RectangleBackgroundColor transparent
+skinparam RectangleBorderColor #e6edf3
+skinparam RectangleFontColor #e6edf3
+skinparam ControlBackgroundColor transparent
+skinparam ControlBorderColor #e6edf3
+skinparam ControlFontColor #e6edf3
+skinparam HexagonBackgroundColor transparent
+skinparam HexagonBorderColor #e6edf3
+skinparam HexagonFontColor #e6edf3
+skinparam ArtifactBackgroundColor #444
+skinparam ArtifactBorderColor #e6edf3
+skinparam ArtifactFontColor #e6edf3
+skinparam defaultTextAlignment center
+skinparam activity {
+FontName Ubuntu
+}
+
+database repo as "Code\nRepo" <<GitHub>>
+control actions as "Actions\nWorkflow" <<GitHub>>
+repo -> actions
+
+hexagon isDocker as "is Docker\nImage?"
+actions -> isDocker
+    
+artifact release as "Release with Attachment" <<GitHub>>
+isDocker -right-> release
+
+artifact dockerhub as "Container Registry" <<DockerHub>>
+isDocker -down-> dockerhub
+
+@enduml
+----
+
+== Manage Projects and Todos
+We utilize GitHub's project feature extensively within the link:https://github.com/sommerfeld-io[sommerfeld-io organization] to effectively manage user stories, tasks, risks, security issues, and all other types of todos across our projects. By leveraging this feature, we centralize and streamline our project management efforts, enabling efficient collaboration, tracking, and progress monitoring for all initiatives.
+
+== Runtime environments
+Our software operates within containers, leveraging a Kubernetes environment hosted on Linode. This configurationis true for all stages, encompassing both production and various testing environments. By utilizing containers and Kubernetes, we ensure consistent deployment and scalability throughout the whole lifecycle.
+
+Note that the sizing of production and test stages may differ. While production environments typically require dedicated resources and consistent availability, test environments are designed to be flexible and on-demand. Test environments may not be continuously running but can be provisioned as needed to perform specific tests or validations. This approach allows us to optimize resource utilization and cost-effectiveness while ensuring efficient and reliable testing processes throughout the development lifecycle.
