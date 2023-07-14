@@ -36,6 +36,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Setup labels
         run: |
           curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -
