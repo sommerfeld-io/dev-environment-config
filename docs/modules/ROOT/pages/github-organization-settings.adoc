@@ -3,6 +3,11 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 This page lists all configurations for the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization] wich are done manually.
 
+== Discussions
+Setting up Discussions for your organization will allow you to broadcast updates, answer questions, and hold conversations for the entire organization.
+
+Discussions cannot be enabled / disabled for each individual repository. Discussions are enabled for all repositories at organization-level (see https://github.com/organizations/sommerfeld-io/settings/discussions).
+
 == Organization secrets
 Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/actions[Github Actions secrets for the organization] to prepare interaction with DockerHub, Snyk and Google Chat from Github Actions workflows:
 
