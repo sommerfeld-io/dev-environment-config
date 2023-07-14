@@ -53,17 +53,20 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-      # - name: Configure repository
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     gh repo edit \
-      #       --enable-discussions \
-      #       --enable-issues \
-      #       --enable-projects \
-      #       --enable-wiki=false \
-      #       --visibility=public
-      #   shell: bash
+      - name: Configure repository
+        # run: |
+        #   gh repo edit \sommerfeld-io/${{ github.event.repository.name }}
+        #     --enable-discussions \
+        #     --enable-issues \
+        #     --enable-projects \
+        #     --enable-wiki=false \
+        #     --visibility=public
+        run: |
+          echo "[INFO] Get repo sommerfeld-io/${{ github.event.repository.name }}"
+          gh api "repos/sommerfeld-io/${{ github.event.repository.name }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
 
   on-failure:
     runs-on: ubuntu-latest
