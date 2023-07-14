@@ -1,4 +1,4 @@
-= Development Environment Config
+= dev-environment-config
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
 :project-name: dev-environment-config
 :url-project: https://github.com/sommerfeld-io/{project-name}
