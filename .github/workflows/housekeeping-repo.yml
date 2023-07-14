@@ -1,20 +1,6 @@
 ---
 name: "Housekeeping: Repository"
 
-# +----------------------------------------------------+
-# |                                                    |
-# |    DO NOT EDIT DIRECTLY !!!!!                      |
-# |                                                    |
-# |    File is created from a bootstrap script and     |
-# |    most likely auto-generated from a github        |
-# |    actions workflow. So any changes will be        |
-# |    overwritten regularly.                          |
-# |                                                    |
-# |    See sommerfeld-io/dev-environment-config        |
-# |    repo for master.                                |
-# |                                                    |
-# +----------------------------------------------------+
-
 on:
   schedule:
     - cron: '30 0 * * *' # https://crontab.guru
