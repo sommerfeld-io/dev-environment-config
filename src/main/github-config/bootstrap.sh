@@ -85,7 +85,7 @@ function createWorkflowFiles() {
     local files=(
         "housekeeping-labels.yml"
         "housekeeping-issues.yml"
-        "housekeeping-repo.yml"
+        #"housekeeping-repo.yml"
     )
 
     for file in "${files[@]}"
