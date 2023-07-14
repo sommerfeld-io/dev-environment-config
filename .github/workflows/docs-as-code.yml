@@ -12,7 +12,7 @@ permissions:
   security-events: write
 
 concurrency:
-  group: ${{ github.ref }}
+  group: "docs-as-code-${{ github.event.repository.name }}-${{ github.ref }}"
   cancel-in-progress: true
 
 jobs:
