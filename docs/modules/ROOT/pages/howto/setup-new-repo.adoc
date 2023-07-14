@@ -7,7 +7,7 @@ Setting a new repository on Github should follow the same process to make sure a
 . Create repository on Github in the link:https://github.com/sommerfeld-io[sommerfeld-io] organization
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup an Antora module
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup arc42 docs inside the Antora module (if needed)
-. Use the bootstrap script `xref:AUTO-GENERATED:bash-docs/src/main/github-config/bootstrap-sh.adoc[src/main/github-config/bootstrap.sh]` from this repo to setup basic Github Actions workflows, Pull Request template and issue templates: `curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-config/bootstrap.sh | bash -`
+. Create all basic Github Actions workflows for this repository (see link:/.github/main[``.github``'s docs] for further furher information)
 . Use `gh repo edit --enable-discussions --enable-issues --enable-projects --enable-wiki=false --visibility=public` to configure the remote repository
 . Create secrets for this repository (if needed) and document them
 . Create organization secrets (if needed) and document them
