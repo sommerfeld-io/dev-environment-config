@@ -3,6 +3,20 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 Our approach and guidelines to software development. These principles apply to every project we are developing.
 
+== Everything as Code
+We embrace the philosophy of treating as much as possible as code, incorporating best practices from software development in every aspect of our work. We prioritize utilizing technologies and tools that allow us to leverage version control and adhere to established development practices like branching and code reviews. This applies to source code, infrastructure code, utility scripts and basically everything that can be depicted as some sort of "code".
+
+For instance, we prefer using technologies like Asciidoc and Antora instead of using a traditional Wiki. We prefer RevealJS for presentations instead of traditional PowerPoint slides.
+
+When it comes to configuration management, we opt for approaches that align with software development principles. If there are multiple ways to apply a configuration, such as through a web UI or an API, we prioritize the API method. This preference is due to its reproducibility, (hopefully) idempotency and potential for automation, ensuring consistency and facilitating efficient management of configurations.
+
+By treating various aspects of our work as code, we can leverage the benefits of version control, automation, and reproducibility. 
+
+== As much as possible in containers
+We prioritize running as many components as possible in Docker containers within our organization. This includes our own software applications, 3rd party tools usd for develpment, and project dependencies. By containerizing these elements, we enhance portability, and consistency across different environments, while minizing the requirements for development workstations.
+
+Whenever feasible, we package and ship our software using Docker containers. Docker containers serve as the preferred format for shipping executable components of our applications. However, for non-executable artifacts such as Jar files or Zip files, we employ alternative packaging methods. For instance, the Antora UI bundle, as an example, is published as a Zip file attachment to a GitHub release, ensuring the appropriate distribution and availability of the artifact.
+
 == Version Control
 We make all changes to code, test, infrastructure, configuration, and ultimately production via version control.
 

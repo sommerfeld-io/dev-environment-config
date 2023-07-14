@@ -3,11 +3,6 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 These tools and concepts serve as the cornerstone of our software development and deployment toolkit, forming the building blocks that drive our software development and deployment workflows.
 
-== As much as possible in containers
-We prioritize running as many components as possible in Docker containers within our organization. This includes our own software applications, 3rd party tools usd for develpment, and project dependencies. By containerizing these elements, we enhance portability, and consistency across different environments, while minizing the requirements for development workstations.
-
-Whenever feasible, we package and ship our software using Docker containers. Docker containers serve as the preferred format for shipping executable components of our applications. However, for non-executable artifacts such as Jar files or Zip files, we employ alternative packaging methods. For instance, the Antora UI bundle, as an example, is published as a Zip file attachment to a GitHub release, ensuring the appropriate distribution and availability of the artifact.
-
 == Code Repositories
 Each project is hosted within its dedicated repository on GitHub. All projects, that provide any service to www.sommerfeld.io, are part of the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization], ensuring centralized management and fostering collaboration across our entire software ecosystem.
 
