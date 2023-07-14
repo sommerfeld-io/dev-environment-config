@@ -1,6 +1,6 @@
 = The .github Repo
 
-The `.github` repo is aspecial repository which main purpose is to provide Reusable Workflows to reference from other repositories.
+The `.github` repo is a special repository which main purpose is to provide Reusable Workflows to reference from other repositories.
 
 == What to find inside the `.github` repo
 Although this `dev-envorinment-config` repository servess as the primary resource for development-related assets and configurations, it's important to note that the repository does not include Reusable Workflows. These reusable workflows are stored in the `.github` repository. This comes with the upside that, in case a repository does not contain its own `.github` folder, this repo inherits workflows etc. from the `.github` repository.
