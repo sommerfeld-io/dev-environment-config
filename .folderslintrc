@@ -13,6 +13,8 @@
     "docs/modules/*/partials/*",
     "docs/modules/*/partials/**",
 
+    "profile",
+
     "src/main/**",
     "src/test/**",
 
