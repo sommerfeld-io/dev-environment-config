@@ -59,21 +59,9 @@ curl https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main
 
 == Index
 
-* <<_createworkflowfiles,createWorkflowFiles>>
 * <<_createissuetemplates,createIssueTemplates>>
 * <<_createpullrequesttemplate,createPullRequestTemplate>>
 * <<_createlinterrules,createLinterRules>>
-
-=== createWorkflowFiles
-
-Download workflow files from remote repository and write to `.github` folder.
-
-==== Example
-
-[,bash]
-----
-createWorkflowFiles
-----
 
 === createIssueTemplates
 
