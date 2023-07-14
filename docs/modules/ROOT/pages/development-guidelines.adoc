@@ -1,4 +1,4 @@
-= Development Guidelines
+= Development Principles and Guidelines
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 Our approach and guidelines to software development. These principles apply to every project we are developing.
