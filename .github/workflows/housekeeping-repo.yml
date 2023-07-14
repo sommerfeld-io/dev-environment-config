@@ -12,8 +12,8 @@ on:
       - .github/workflows/housekeeping-repo.yml
   workflow_dispatch:
 
-# permissions:
-#   contents: write
+permissions:
+  contents: write
 
 jobs:
   call-workflow:
