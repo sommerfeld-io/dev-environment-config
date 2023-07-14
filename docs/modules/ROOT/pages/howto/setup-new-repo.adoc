@@ -4,14 +4,20 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 Setting a new repository on Github should follow the same process to make sure all repos follow the same configuration and layout.
 
 == Creating a new Repository
+=== Things to do
 . Create repository on Github in the link:https://github.com/sommerfeld-io[sommerfeld-io] organization
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup an Antora module
 . Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup arc42 docs inside the Antora module (if needed)
 . Create all basic Github Actions workflows for this repository (see link:/.github/main[``.github``'s docs] for further furher information)
+. Setup linter definitions
+. Setup Dependabot config
 . Use `gh repo edit --enable-discussions --enable-issues --enable-projects --enable-wiki=false --visibility=public` to configure the remote repository
 . Create secrets for this repository (if needed) and document them
 . Create organization secrets (if needed) and document them
 . Link repository to a project
+
+=== Things not to do
+. Do not create Issue Templates or Pull Request templates - these files are automatically inherited from the special `.github` repository
 
 == Github Config, Issues, Pull Requests and Projects
 To maintain a centralized and consistent approach to managing GitHub repositories and configurations, a Github Actions workflow should be present in every repository (created by the bootstrap script mentioned above). This ensures some mandatory files and workflows are present and the repository config is consistent across all repositories of the link:https://github.com/sommerfeld-io[sommerfeld-io organization].
