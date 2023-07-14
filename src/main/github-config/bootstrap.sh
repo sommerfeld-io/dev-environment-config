@@ -78,22 +78,22 @@ fi
 #
 # @example
 #    createWorkflowFiles
-function createWorkflowFiles() {
-    echo -e "$LOG_INFO Create workflow files"
-    mkdir -p "$FOLDER_GITHUB/workflows"
+# function createWorkflowFiles() {
+#     echo -e "$LOG_INFO Create workflow files"
+#     mkdir -p "$FOLDER_GITHUB/workflows"
 
-    local files=(
-        "housekeeping-labels.yml"
-        "housekeeping-issues.yml"
-        #"housekeeping-repo.yml"
-    )
+#     local files=(
+#         "housekeeping-labels.yml"
+#         "housekeeping-issues.yml"
+#         "housekeeping-repo.yml"
+#     )
 
-    for file in "${files[@]}"
-    do 
-        echo -e "$LOG_INFO Create $file"
-        curl "$GITHUB_BASEURL/src/main/github-config/assets/workflows/$file" --output "$FOLDER_GITHUB/workflows/$file"
-    done
-}
+#     for file in "${files[@]}"
+#     do 
+#         echo -e "$LOG_INFO Create $file"
+#         curl "$GITHUB_BASEURL/src/main/github-config/assets/workflows/$file" --output "$FOLDER_GITHUB/workflows/$file"
+#     done
+# }
 
 
 # @description Download issue template files from remote repository and write to ``.github`` folder.
@@ -154,7 +154,7 @@ function createLinterRules() {
 
 
 echo -e "$LOG_INFO Run bootstrap script to provision github repository"
-createWorkflowFiles
+# createWorkflowFiles
 createIssueTemplates
 createPullRequestTemplate
 createLinterRules
