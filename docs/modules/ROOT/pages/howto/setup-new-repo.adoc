@@ -18,8 +18,3 @@ Setting a new repository on Github should follow the same process to make sure a
 
 === Things not to do
 . Do not create Issue Templates or Pull Request templates - these files are automatically inherited from the special `.github` repository
-
-== Github Config, Issues, Pull Requests and Projects
-To maintain a centralized and consistent approach to managing GitHub repositories and configurations, a Github Actions workflow should be present in every repository (created by the bootstrap script mentioned above). This ensures some mandatory files and workflows are present and the repository config is consistent across all repositories of the link:https://github.com/sommerfeld-io[sommerfeld-io organization].
-
-To automatically link issues and pull requests to the link:https://github.com/orgs/sommerfeld-io/projects/1/views/1[sommerfeld-io organization project], a GitHub Actions workflow is triggered every time an issue or pull request is raised. This workflow assigns the issue / pull request to the project. The workflow is managed centrally by Terraform. This approach ensures consistency and reduces manual effort across all repositories within the organization. 
